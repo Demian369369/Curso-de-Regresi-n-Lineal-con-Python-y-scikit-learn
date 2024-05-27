@@ -1,0 +1,53 @@
+# Histograma de la variable 'age'
+plt.hist(df['age'], bins=30)
+plt.xlabel('Edad')
+plt.ylabel('Frecuencia')
+plt.title('Distribución de Edad')
+plt.show()
+
+# Histograma de la variable 'bmi'
+plt.hist(df['bmi'], bins=30)
+plt.xlabel('BMI')
+plt.ylabel('Frecuencia')
+plt.title('Distribución de BMI')
+plt.show()
+
+# Histograma de la variable 'charges'
+plt.hist(df['charges'], bins=30)
+plt.xlabel('Cargos')
+plt.ylabel('Frecuencia')
+plt.title('Distribución de Cargos')
+plt.show()
+
+
+.....................
+----->Exploración y preparación de datos<---- Regresión lineal para predecir los gastos médicos de pacientes
+
+σ La mision es hacer una prediccion y analisis con datos medicos. σ Las principales datos (variables) que se poseen son Edad, sexo, IMC, hijos, fumador, region, cargos. σ Luis va a insurance.csv y buscan un Data set que tenga la variables de las que el este interesado. Una vez descargados en archivo .rar , solo los pone en la carpeta en donde el quiera.
+
+----->Exploración y preparación de datos<---- σ Empezaremos a usar los archivos anteriormente recabados. 1. Las dos librerias que utilizaremos son Seaborn y Pandas, es por ello que lo primero en hacer es importarlos. Usando :
+
+" import pandas as pd " " import seaborn as sns " + Como mencionamos anteriormente, basicamente establecer las abreviaturas que se van a usar en el programa. 2.Configurara seaborn, a traves de : " sns.set (style='whitegrid', context='notebook' ) " ---------->Ahora cargamos los archivos medicos descargados en Google Colab. Asi para que la herramienta tenga la informacion para trabajar. 3. df = pd.read_csv('insurance.csv') df.head() +Esto es para empezar a mostrar la informacion plasmada de la info descargada a manera de tabla. 4. El siguiente paso que a Luis le gusta hacer, es conocer el numero de datos con los que se cuenta, para asi poder hacer un analisis. Usamos: " print(df.shape) " 5. Ahora sabremos la distribucion de la variable predictora usand : " df.charges.hist(bins = 40) " +Con esto estamos accesando a la variable charges, usando un histograma. +Con esto se crea una distribucion, la cual es interesante ya que hay muy pocos valores antes de "50k". Y luis se pregunta por que. 6. Debido a lo anterior, ahora analizaremos los puntos de 50k hacia atras. Por ello Luis imprimde los datos usando : df[df.charges>50000] +Con esto se nos muestra las filas que tienen mas de "50k", lo cual significa que hay mucha otra data que no es de nuestro interes (o mas bien, no tiene 50k) por ello Luis decidira eliminarlo. NOTESE: Luis remomienda no eliminar los datos, sin antes haber consultado /confirmado con las demas personas involucradas. 7. Para ello, se usa" df = df[df.charges<50000] " y asi la info mostrada solo sera la que es menor a 50k
+
+.........
+def detect_otliers(x):
+    Q3 = Datos[x].quantile(0.75)
+    Q1 = Datos[x].quantile(0.25)
+    IQR = Q3 - Q1
+    superior = Q3 + (1.5 * IQR)
+    inferior = Q1 - (1.5 * IQR)
+    out_sup = Datos[Datos[x] > superior].index
+    out_inf = Datos[Datos[x] < inferior].index
+    outliers = []
+    for i in out_sup:
+        outliers.append(i)
+        for j in out_inf:
+            outliers.append(j)
+    
+    size = len(outliers)
+        
+    return (f'Hay {size} valores atípicos en la variable {x}, y corresponden a los índices: {outliers}')
+
+detect_otliers('bmi')
+
+'Hay 8 valores atípicos en la variable bmi, y corresponden a los índices: [115, 285, 400, 843, 856, 1043, 1084, 1310]'

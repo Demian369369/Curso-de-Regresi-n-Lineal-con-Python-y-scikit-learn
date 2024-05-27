@@ -1,0 +1,13 @@
+Observaciones del dataset
+
+Es obvio que la prima del seguro va depender de la salud fisica del asegurado por lo que el indice de masa corporal y saber si es fumador van a estar correlacionadas, el número de hijos támbien lo encuentro lógico que haya una correlación, si hay más integrantes en una familia, hay más posibilidades de usar el seguro de gastos medicos, lo interesante sería análizar si hay una correlación de la prima del seguro con la región donde vive.
+
+Variables categoricas:
+
+Genéro
+Indicador si Fuma
+Region donde vive
+Variables númericas: Enteros - Edad del asegurado - Número de hijos Flotantes - Indice de masa corporal - Prima del seguro
+
+...
+Este código utiliza la biblioteca Plotly para crear una figura 3D con una superficie basada en las predicciones del modelo y puntos dispersos representando los datos reales. Puedes personalizar la apariencia de la gráfica según tus preferencias modificando los parámetros en el código.

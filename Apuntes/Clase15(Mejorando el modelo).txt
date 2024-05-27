@@ -1,0 +1,14 @@
+Para mejorar el modelo de regresión lineal, puedes considerar las siguientes estrategias:
+
+Feature Engineering:
+Analiza las variables existentes y busca formas de crear nuevas variables que puedan tener una mejor relación con la variable objetivo. Esto puede incluir transformaciones, combinación de variables o creación de variables dummy.
+Selección de características:
+Evalúa la importancia y relevancia de cada variable en el modelo. Puedes utilizar técnicas como la correlación, la importancia de características o la eliminación recursiva de características para seleccionar las variables más significativas.
+Regularización:
+Considera el uso de técnicas de regularización como la regresión ridge o la regresión lasso para reducir la complejidad del modelo y evitar el sobreajuste. Estas técnicas penalizan los coeficientes de las variables menos relevantes.
+Manejo de valores atípicos:
+Identifica y maneja los valores atípicos en tus datos. Los valores atípicos pueden afectar negativamente el rendimiento del modelo y distorsionar los resultados. Puedes eliminarlos, imputarlos o utilizar técnicas robustas para minimizar su impacto.
+Validación cruzada:
+Utiliza la validación cruzada para evaluar el rendimiento del modelo de manera más robusta. Esto te permite obtener estimaciones más precisas del rendimiento y asegurarte de que el modelo generaliza bien a nuevos datos.
+Regularización de hiperparámetros:
+Ajusta los hiperparámetros del modelo, como la tasa de aprendizaje o el parámetro de regularización, utilizando técnicas como la búsqueda en cuadrícula o la optimización bayesiana. Esto te permite encontrar la configuración óptima que maximice el rendimiento del modelo.

@@ -1,0 +1,6 @@
+Regresión lineal con scikit-learn
+La biblioteca Scikit-Learn ofrece una amplia gama de herramientas para realizar análisis de regresión lineal. Aquí tienes un ejemplo básico de cómo puedes utilizar Scikit-Learn para realizar una regresión lineal:
+
+Scikit-Learn, también conocido como sklearn, es una biblioteca de aprendizaje automático (machine learning) para el lenguaje de programación Python. Proporciona una amplia gama de algoritmos y herramientas para tareas de aprendizaje supervisado y no supervisado, incluyendo clasificación, regresión, agrupamiento (clustering), selección de características, preprocesamiento de datos y más.
+Scikit-Learn se construye sobre otras bibliotecas populares de Python, como NumPy y SciPy, y proporciona una interfaz coherente y fácil de usar para el desarrollo de modelos de aprendizaje automático. Es una de las bibliotecas más utilizadas y respetadas en el campo del aprendizaje automático debido a su simplicidad, eficiencia y enfoque en las mejores prácticas.
+

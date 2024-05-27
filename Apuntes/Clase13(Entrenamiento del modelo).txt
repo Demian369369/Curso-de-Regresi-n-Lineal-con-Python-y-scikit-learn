@@ -1,0 +1,46 @@
+
+----->Entrenamiento del modelo<---- σ El objetivo es saber como entrenar un modelo de regresion lineal dentro de machine learning. 1.Crear el modelo. Parecido a lo hecho en el primer ejecicio, lo primero es importar la informacion. Mas ahora usaremos "from", ya que en vez de usar la libreria entera, podemos especificar solo lo que queremos recuperar de ahi.
+
+" from sklearn.preprocessing import StandardScaler " + Luis lo explica asi "De esta parte" importa esto. " from sklearn.linear_model import LinearRegression " " from sklearn.model_selection import train_test_split " + Aqui tenemos una funcion la cual se especifica que queremos que un DataSet se divida entre uno de prueba y otro de entrenamiento. + En el modeo de entrenamiento se va a crear el modelo. + Y en el de entrenamiento se va a verificar si fue bueno o fue malo. 2. Definir las colummnas que van usar para las x-axis, y tambien las columnas que seran para la variable predictora. " X_cols = list(set(df.columns)-set(['charges'])) " + X cols van a ser igual a una lista la cual estara compuesta de todas las columnas que existen menos la variable predictora. + Asi para que el programa revise todas las columnas excepto una. + Nota: Usando la variable " set " se eliminan los duplicados. σ La siguiente es definir la variable predictoria a la cual es asi: " y_col = ['charges'] " 3. Una vez teniendo las columnas, ahora se estableceran las variables a usar.
+
+" X = df[X_cols].values " + X es igual a data frame de todas la columnas de x, piendo solo los valores que tengan. " y = df[y_col].values " 4.Lo siguiente es crear el modelo de " test " and "train"speed:
+
+" X_train, X_test, y_train, y_test = train_test_split(X,y) " + Se establecen las palabras que va a ayuda a entrenar y probar el modelo. 5. Ahora lo que sigue es establacer la informacion de los datos " sc_x = StandardScaler().fit(X) " " sc_y = StandardScaler().fit(y) " + Las variables van a hacer igual al sus repectivas StandardScaler () ----------->Haciendo asi lo msimo con sus debidas funciones para crear el campo de "train" y "test" sobre "x" e "y" " X_train = sc_x.transform(X_train) " " X_test = sc_x.transform(X_test) " " y_train = sc_y.transform(y_train) " " y_test = sc_y.transform(y_test) " 6. Ahora hay que aclarar el modelo a crear, en este caso linaer regression model = LinearRegression() model.fit(X_train,y_train) 7. Y finanlmente se hace uba prediccion de los datos. " y_pred = model.predict(X_test) "
+
+Al final Luis, uso " y_pred.shape " para conocer el numero de colmnas y filas que hay. teniendo asi muchas columnas pero solo una vairblse , lo cual esta correcto.
+
+
+
+............................................
+
+Este capítulo me dejó unas dudas que resolví investigando un poco.
+
+Al no colocar un test_size, se asume que toma un 75% para train y 25% para test
+El .fit lo que haría es obtener la media y la desviación estandar para luego aplicarlo al usar la transformación.
+Al hacer un fit de X, y es para sacar los valores que describo en 2) y aplicarlos al X_train, X_test, y_train, y_test
+No siempre es necesario aplicar un fit_transform al target
+En caso uses el método que coloco abajo, debes saber que .fit_transform se aplica a X_train, y_train, y .transform solo se aplica a X_test, y_test
+Yo lo hice de esta manera, es otra opción:
+
+
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+
+X = data.drop(columns = ['charges'])
+y = data[['charges']]
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25)
+
+sc_x = StandardScaler()
+X_train = sc_x.fit_transform(X_train)
+X_test = sc_x.transform(x_test)
+
+sc_y = StandardScaler()
+y_train = sc_y.fit_transform(y_train)
+y_test = sc_y.transform(y_test)
+
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+y_pred = model.predict(X_test)

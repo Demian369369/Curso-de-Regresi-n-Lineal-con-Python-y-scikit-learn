@@ -1,0 +1,18 @@
+Notar que: X = df[['RM','INDUS']].values y = df['MEDV'].values.reshape(-1,1) StandardScaler acepta arreglos de 2 dimensiones razon por la cual ya no usamos el reshape(-1,1)
+La regresión lineal múltiple es la gran técnica estadística para comprobar hipótesis y relaciones explicativas
+........
+La regresión lineal multivariable es una técnica estadística utilizada para modelar la relación entre una variable dependiente y múltiples variables independientes. A diferencia de la regresión lineal simple, que involucra una única variable independiente, la regresión lineal multivariable considera varios predictores para predecir el valor de la variable dependiente.
+
+++En términos matemáticos, la regresión lineal multivariable se puede expresar como:++
+
+
+y = β0 + β1x1 + β2x2 + ... + βn*xn + ε
+
+Donde:
+
+y es la variable dependiente que queremos predecir.
+x1, x2, ..., xn son las variables independientes o predictores.
+β0 es el término constante o intercepto.
+β1, β2, ..., βn son los coeficientes que representan las pendientes de cada predictor.
+ε es el término de error o residual, que captura la variabilidad no explicada por el modelo.
+El objetivo de la regresión lineal multivariable es encontrar los coeficientes β0, β1, β2, ..., βn que minimicen la suma de los cuadrados de los errores (método de mínimos cuadrados). Una vez que se han estimado los coeficientes, podemos utilizar el modelo para realizar predicciones sobre nuevos datos.

@@ -1,0 +1,28 @@
+La regresión lineal es una técnica que nos ayuda a hacer comparaciones entre los puntos en el plano cartesiano. es decir, que para un valor de X existe un valor de Y, esto se empieza a graficar sobre el plano como un grafico de dispersión
+
+para esos datos, hay que ajustar una linea recta que mejor los entienda, ósea el modelo trata de predecir el mejor ajuste para la linea recta en esos datos.
+
+La función matemática correspondiente a este problema es Y=w0 + w1x
+
+X es un valor que existe sobre el plano
+W0 es el punto que se esta cortando sobre el plano, es decir, cuando X = 0 cual es el salto que existe el punto de X = 0 y el plano en el eje Y.
+W1 es cuando se agrega un valor a la X cuanto salto sobre Y
+Básicamente esto se conoce como w0 el Intercepto y w1 la pendiente de la linea recta.
+
+durante el ajuste del modelo de regresión lineal se conocen como los pesos del modelo, estos son los valores que va a estar intentando aprender el modelo para entender cual va a ser la mejor linea recta que se va a ajustar a los datos.
+
+...............
+Simple interpretación de la formúla
+
+Tu valor real es "X" (punto amarillo)
+"Y" es la variable que intentas predecir
+Y = W0 + W1 * X
+...............
+----------->Que es una R. Lineal?<-------- Segun otros aportes en la clase, una regresion lineal es una comparacion entre puntos en un plano cartersiano. Luis nos explica un ejemplo de una regresion lineal el cual esta representada como y= w0 + w1(X).
+
+----------> En donde explica que: σLa suma de W0 que es basicamente la distancia que hay desde el punto (0,0) a cualquiera que sea la intercepcion con x (x-int).
+
+σAsi como en cualquier funcion, X es un Básicamente esto se conoce como w0 el Intercepto y w1 la pendiente de la linea recta.
+
+
+    NOTAS EXTRAS: Grafico de dispersion es lo mimo a scatter plot.

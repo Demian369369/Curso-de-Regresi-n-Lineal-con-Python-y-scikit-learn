@@ -1,0 +1,6 @@
+😎----->Análisis de regresión multivariable<---- Todo este tiempo hemos aprendido la manera en la que se manejan los modelos de regresion lineal, mas cuando no se tiene un modelo asi, hay que acudir a los Modelos Polinomiales. Donde ya no es solo variables simples como x1 o x2 sino, tamb con variables con exponentes. Haciendo asi que las lineas sean curvas (en forma de ondas). Sin embargo, con estas graficas no solo se puede llegar a predecir un modelo, sino que en algunos casos su precision llega a ser incluso mejor que la de un modelo de regresion lineal. Ya qu edebido a la variaza que estos modelos tienen, llegan a cubrir mucho mejor la varianza que hay en los resultados. A este tipo de modelos se le conoce como de varianza, y a los tradicionales que hemos visto en este curso se les llama de sesgo.
+
+σ Despues, Luis explica que al usar machine learnig, buscamos usar modelos de regularizacion para reducir el sesgo y varianza que tenga nuestro modelo. Lo que se hace, entonces, es reducir la vairanza que tenga un modelo, aunque esto aumente su sesgo, ya que es aceptable la inperfeccion en un sesgo.
+
+σ Conitnuando, la manera en la que se agrega un modelo de regularizacion, es a traves de poner una penalizacion
+

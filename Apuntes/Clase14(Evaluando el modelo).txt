@@ -1,0 +1,19 @@
+😎----->Evaluando el modelo<----
+
+σ Objetivo es evaluar el modelo hecho en la clase anteior, para ello se usara la libreria llamada regresors.
+
+
+1 . Se necesita importar las metricas necesarias, para continuar, por ello se usa: 
+" import sklearn.metrics as metrics " +Estableciendo las abreviaturas que se van a usar en el codigo. " mse = metrics.mean_squared_error(y_test,y_pred)" +" y_test,y_pred "se le va sobre la funcion que se esta evaluando. " r2 = metrics.r2_score(y_test, y_pred) " +El siguiente paso es evaluar "r2" print("r2 ", r2.round(4)) +Ahora se imprimen los valores de r2, mas ponemos una funcion de round 4, osea que de ser numero decimal, se nos muestre hasta el 4to digito. " print("mse: ", mse.round(4))" +Con este ultimo, nos arrojara valores que nos sirven para entender el modelo. ------------> En este ejemplo, Luis recibio los valores de " r2 0.7697 " " mse: 0.2591" A lo que el hace una nota diciendo. que "R2" tiene un 76% mientras que "mse" tiene un 26%. NOTA: Modelo que sea evaluado arriba de 75%, es un aceptable modelo para trabajar, un 85% es excelente y arriba de 95% es casi perfecto. Mas nota que si tiene un modelo de 100%, posiblemente esta solamente evaluando ciertos resultados y no el espectro completo, por ello tal vez este muy ajustado, y ya que corregirlo. 2 . Ahora importart las stadisticas de la librera regressors. usando:
+
+" from regressors import stats " +Debido a que ya debio haber sido instalado regresor anteriormente, uno solo especifica lo que quiere sacar. ----------> Ahora hay que limpiar los pasos del modelo, debido a que la funcion "regressors" necesita que los datos del intercepto y de la pendiente tengan un tipo de formula especifica para que sea mas facil analizar los resultados.
+
+
+3 . " model.intercept_ = model.intercept_[0] "
+     +Notese que " [0] " se refiere al valor, debido a que 
+"ahora mismo lo entrega como una lista"
+
+" model.coef_ = model.coef_.reshape(-1) " +Esto permite que cuando apliquemos la funcion que necesitemos utilice los coeficientes y modelos que estan en la libreria "stats" de una forma adecuada. --------->El sig. paso en el codigo es empezar a usar la funcion ya establecida, para ello : 4 . " y_test = y_test.reshape(-1) " + Hacemos un reshape para que se pueda usar de manera correcta. +Y ahora resta imprimir los resultados. para ello hacemos " print("==========Summary==========") " stats.summary(model, X_test, y_test, X_cols) +Summary del modelo, con los datos de prueba, del dato de "x" y "y" NOTAS: Ya que el modelo se entrena con datos que no tiene columnas, entonces se especifia en la tercera coma que las columnas a usar para los datos, son las que estan en las columna X --------->Hasta este punto, debemos de cargar todas las celdas ocupadas en este ejercicio. Y nos mostrara los datos recabados en forma de tabla. 5 . Por ultimo, lo que buscamos es presentar los residuales en graficas, esto usando un scatter.
+
+" residuals = np.subtract(y_test, y_pred.reshape(-1)) " +Con esto se crean los residuales. " plt.scatter(y_pred, residuals) " +Con esto se define la manera en la que se presenta la funcion . +Por un lado se mostrara el scatter de la prediccion de "Y" y por el otro, los residuales. NOTA: Debio a que usamos reshape(-1), en "y_test" ahora lo usamos con "y_pred", y esto es para ambos esten en la misma direccion. No es recomendable usar todas las variables dentro de la regresion lineal. " plt.show() "
+

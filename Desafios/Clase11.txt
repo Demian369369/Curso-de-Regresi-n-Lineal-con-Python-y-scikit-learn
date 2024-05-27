@@ -1,0 +1,35 @@
+def detect_otliers(x):
+    Q3 = Datos[x].quantile(0.75)
+    Q1 = Datos[x].quantile(0.25)
+    IQR = Q3 - Q1
+    superior = Q3 + (1.5 * IQR)
+    inferior = Q1 - (1.5 * IQR)
+    out_sup = Datos[Datos[x] > superior].index
+    out_inf = Datos[Datos[x] < inferior].index
+    outliers = []
+    for i in out_sup:
+        outliers.append(i)
+        for j in out_inf:
+            outliers.append(j)
+    
+    size = len(outliers)
+        
+    return (f'Hay {size} valores atípicos en la variable {x}, y corresponden a los índices: {outliers}')
+
+detect_otliers('bmi')
+
+'Hay 8 valores atípicos en la variable bmi, y corresponden a los índices: [115, 285, 400, 843, 856, 1043, 1084, 1310]'
+.........
+# Análisis de distribución variable "bmi"
+sns.histplot(x= Datos['bmi'])
+plt.title('Distribución de la variable BMI')
+plt.show()
+
+# QQ plot
+stats.probplot(Datos['bmi'], dist='norm', plot=plt)
+plt.title('Gráfico QQ para la variable BMI')
+plt.show()
+
+# Prueba shapiro para normalidad
+st, p = stats.shapiro(Datos['bmi']) # La variable BMI sigue una distribución normal.
+print(p)

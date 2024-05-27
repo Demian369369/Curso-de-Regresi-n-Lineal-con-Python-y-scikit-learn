@@ -1,0 +1,31 @@
+3 grandes preguntas para saber cuando utilizar una regresion lineal:
+
+¿Tengo que predecir una variable numerica? la respuesta debe ser afirmativa.
+¿Las variables independientes con las que cuento son primordialmente numericas? debe ser afirmativa
+Cuento con una gran cantidad de avriables categoricas? o poicas variables con muchos niveles? no es aconsejable utilizr la regresion lineal en caso de este numerals er afirmativo.
+.......................
+Recomendaciones al utilizar la regresion lineal:
+
+Para predecir variables numericas es un buen modelo de entrada, y si este no ajusta bien, cambiar a modelos mas complejos.
+Reduce las variables lo ams que puedas, trata de agruparlas en grupos ams grandes de varias variables.
+Evita la Multicolinealidad. variables diferentes que explican lo mismop, por ejem: peso en kg y en libras.
+no predigas fuera del dominio.
+........................
+Ejemplos de cuándo utilizar la regresión lineal
+
+Puede usar la regresión lineal cuando intente aprender más sobre la relación entre diferentes variables de datos. A continuación, se muestran algunos ejemplos específicos de escenarios en los que se puede utilizar este proceso de análisis estadístico:
+
+Ejemplo 1: compromiso de marketing
+
+Personalized Health Now, un servicio virtual de atención de médico a paciente, está interesado en comprender la relación entre los niveles de participación de sus nuevos esfuerzos de marketing y la cantidad de pacientes nuevos que han recibido desde entonces. Usan sus datos de participación de marketing para la variable independiente y los nuevos números de pacientes para la variable dependiente. Luego, consulte sus tablas de datos organizadas en los ejes yy x para terminar de resolver el cálculo. El resultado puede proporcionar a Personalized Health Now información sobre si sus nuevos esfuerzos de marketing los están ayudando a obtener nuevos pacientes y, de ser así, la empresa puede optar por continuar o avanzar en esos esfuerzos.
+
+Relacionado: Análisis de regresión múltiple: definición y cómo calcular
+
+Ejemplo 2: análisis deportivo
+
+Peyton Craft, un presentador de podcasts de analistas deportivos, determina las predicciones para un próximo campeonato deportivo y las comparte con los oyentes. Comienza este proceso investigando las ganancias y pérdidas estadísticamente. El número de victorias representa la variable independiente y el número de pérdidas representa la variable dependiente en su análisis de regresión lineal. Para cada equipo, el Sr. Craft completa el cálculo con su tabla de datos y luego compara los resultados. Esta comparación puede proporcionarle la información que desea compartir con sus oyentes de podcasts antes del evento deportivo. Ejemplo 3: Procesos ambientales
+
+Conservation Clam, una organización ambientalista, está interesada en comprender los efectos de la contaminación en los niveles de sequía. La organización utiliza sus datos de nivel de contaminación como variable independiente y los datos de sequía como variable dependiente. Luego, los analistas e investigadores ambientales organizan las tablas de datos para terminar de resolver el cálculo. El resultado de Conservation Clam puede proporcionar a los equipos la información que necesitan para comprender los efectos de la contaminación en los niveles de sequía. Los equipos ambientales dentro de la organización también pueden usar estos datos para un estudio de caso para involucrar inversionistas, asegurar financiamiento y comunicarse con el público sobre los esfuerzos de conservación en curso.
+
+fuente
+

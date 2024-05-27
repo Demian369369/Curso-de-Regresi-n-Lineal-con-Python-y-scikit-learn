@@ -1,0 +1,22 @@
+# Histograma de la variable 'age'
+plt.hist(df['age'], bins=30)
+plt.xlabel('Edad')
+plt.ylabel('Frecuencia')
+plt.title('Distribución de Edad')
+plt.show()
+
+# Histograma de la variable 'bmi'
+plt.hist(df['bmi'], bins=30)
+plt.xlabel('BMI')
+plt.ylabel('Frecuencia')
+plt.title('Distribución de BMI')
+plt.show()
+
+# Histograma de la variable 'charges'
+plt.hist(df['charges'], bins=30)
+plt.xlabel('Cargos')
+plt.ylabel('Frecuencia')
+plt.title('Distribución de Cargos')
+plt.show()
+
+

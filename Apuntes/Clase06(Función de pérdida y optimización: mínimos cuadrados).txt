@@ -1,0 +1,23 @@
+------>Funcion de perdida y optimizacion: minimos cuadrados.<--------
+
+σCuatro pasos para hacer un algoitmo 1 . Ajustar el modelo +Crear una linear recta: Es decir, la recta que mejor representa los datos, es aquella en la que la distancia desde los puntos hasta la recta es menor. 2 . Comparar resultados con los reales. +Para entender que tal son las predicciones vs la realidad. 3 . Se ajustan pesos en el modelo. +Tendras funciones que daran el resultado final a tu modelo, es importante. ajustarlos. 4. Regreso a paso inicial si no se converge. +Si el modelo funciona, entonces esta listo para ser probado
+
+σ Despues se muestra la linea roja, la cual representa la informacion original. Y una linea formada de muchisimos puntos (como si fuera un tipo proyeccion / holograma), el cual representa la prediccion que se hizo.
+
+σ Se explica que cuando se habla de los "pesos en el modelo", se explica que estos son w0 + w1X (dentro de la formula vista en la otra clase). Explica que para ejecutar un algoritmo: a) Es la funcion de perdida. +La cual ayuda a entender lo buenas (o no) que son las predicciones hechas. +En ese caso se usa el metodo de los minimos cuadrados. b) Algoritmo de optimizacion. +El cual el mas comun es el de "descenso del gradiente".
+
+...........
+a función de pérdida de mínimos cuadrados se define matemáticamente de la siguiente manera:
+
+L = Σ(y - ŷ)²
+
+Donde:
+
+L es la función de pérdida.
+Σ es el símbolo de suma.
+y son los valores reales de la variable dependiente.
+ŷ son los valores predichos por el modelo.
+........
+Función de perdida:
+
+Te va ayudar a entender que tan buenas son tus predicciones respecto a los datos reales

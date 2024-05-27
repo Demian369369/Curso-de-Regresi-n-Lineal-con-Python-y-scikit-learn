@@ -1,0 +1,65 @@
+graficacion 3d interactiva con plotly
+recomiendo mas usar plotly para graficar y asi obtener una grafica deinamica como la siguiente:
+
+
+el codigo es el siguiente: Nota: no realice el paso de escalamiento(para mas facilidad)
+
+
+#LIBs
+import plotly.express as px
+import plotly.graph_objects as go
+
+# TRAINING MODEL
+X = df[['RM', 'INDUS']].values
+y = df['MEDV'].values.reshape(-1, 1)
+
+
+slr = LinearRegression()
+slr.fit(X, y)
+
+# PLOTTING
+mesh_size = .02
+margin = 0
+
+# Create a mesh grid on which we will run our model
+x_min, x_max = X[:,0].min() - margin, X[:,0].max() + margin
+y_min, y_max = X[:,1].min() - margin, X[:,1].max() + margin
+xrange = np.arange(x_min, x_max, mesh_size)
+yrange = np.arange(y_min, y_max, mesh_size)
+xx, yy = np.meshgrid(xrange, yrange)
+
+# Run model
+pred = slr.predict(np.c_[xx.ravel(), yy.ravel()])
+pred = pred.reshape(xx.shape)
+
+# Generate the plot
+fig = px.scatter_3d(df, x='RM', y='INDUS', z='MEDV')
+fig.update_traces(marker=dict(size=5))
+fig.add_traces(go.Surface(x=xrange, y=yrange, z=pred, name='pred_surface'))
+fig.show()
+
+referencia: https://plotly.com/python/ml-regression/
+
+...........
+----->Análisis de regresión multivariable<----
+
+σ Objetivo: Reacomodar las lineas de codigo anteriores para poder usar 1 . Importar un herramienta que se le llama toolkits. Usando from mpl_toolkits.mplot3d import* + Lo cual nos ayuda a basicamente graficar en 3d + Luis uso " * " al final, y menciono que significa "everything" (interesante 🤔) 2.Procede a importar numpy usando algo ya visto anteriormente: " import numpy as np" -----------> Explica que se necesita crear un plano, para generar una malla en 3era dimension, y no solo un plano cartesiano. 3. Lo siguiente es usar las variables anteriores " (RM) " " (INDUS) ". Usando " x_range = np.arrange (df [ 'RM' ].min (), df [ 'RM' ].Max() ) " + Notese que se hizo un " arreglo a la funcion minima de ' RM ', asi como para su funcion Maxima . " (Algo asi como delimitar el alcance minimo y el maxio que tiene la funcion dentro del plano). 4. Continua haciendo un copy / paste del codigo anterior y cambia el nombre de la variable " x1_range " a " x2_range " +Esto ya que ahora estamos usando una segunda variable. 5. Interesantemente esta es la funcion que nos permite crear la malla del plano, y esta es la siguiente. " X1, X2 = np.meshgrid(x1_range, x2_range) ". +Debido a que igual no estoy entendiendo al 100% lo que esta pasando. Es importante recalcar la maenra tan peculiar en la ques esta escrito el dodigo, la cual es la estructura de la funcion para crear la malla. + Con esto se crea una malla con todas las variables.
+
+
+6. Todo lo anterior ya definido, ahora solo resta crear el plano, para ello se crea la variable  " plano " y se aplica lo siguiente: " plano = pd.DataFrame({‘RM’:X1.ravel(), ‘INDUS’:X2.ravel()}) "
+     + se esta defininedo como un Data Frame.
+     + Que a su vez tiene como primera variable el promedio de las casas (RM).
+     + Notese que despues de ' RM ' se utliza " : " el cual es para darle paso a la definicion que es ," X1. ravel() ". 
+     +" X1.ravel ()" , el cual a su vez esta poniendo (o invocando el arreglo de numpy que se hizo anteriormente), haciendolo mas sencillo y mejor de graficar. 
+     +Por ultimo, Luis agrega solo la siguiente variable que es " ' INDUS ' "y desues se usan dos ( "." ) puntos para deifinir que tiene " X2.ravel () "
+     +Notese que se esta usando llaves ( " { } " )en donde estan las variables. ...interesante 🤔
+σ Una vez definido el plano con el que vamos a trabajar. 1. " pred = slr.predict(plano).reshape(X1.shape)" +Se crea una variable, la cual basicamente se le dice a la prediccion que tenga la misa forma de x1 y que todas las variables tengan las mismas caracteristicas. ( Asi se vuelva mas facil de entender para que maplotlib cree el grafico en 3era dimension ).
+
+
+2.pred = sc_y.inverse_transform(pred)
+     +Pondresmos la inversa para que muestre los resultados en comparacion con los precios.
+     + Luis hace nota de que se esta utilizando " sc_y " debido a que se esta usando codigo de anteriores ejercicios. Mas que en casos mas como ahora estamos usando 3 variables, esta bien podria llamarse " sc_z ".
+3. Ahora cuando ya tienes la grafica pero ahora sigue definirla como fig = plt.figure()
+4. A lo que Luis de inmediatamente despues explica que un axis sobre esta figura de tal manera de que sepa que es una figura en 3 dimensiones. A lo que se usa.
+" ax = fig.gca (projection='3d') " +Lo que se le esta diciendo a Matplotlib, es que tiene que hace una grafica en 3 dimensiones. 7. Lo siguiente es crear la superficie, la malla que se va a usar. Para ello ya se tiene la funcion apropiara, la cual es: " ax.plot_surface (X1,X2,pred, alpha=0.4) " +Diciendo asi que basicamente se va hacer una superficie con la variable" x1", "x2" y la variable " predi " (o prediccion, ya establecida anteriormente). +Asi mismo, agregando al final (y antes de cerrar parentesis) , la cacteristica " alpha = 0.4 ". Lo cual agrega solo un valor de transparencia a la figura, lo que permitira que sea mas legible. ax.plot.dca (projection = '3d') " 8.Ya con esto definido lo ultimo que se tiene que hacer es invocar la version scatter de las variables que ya definiste. Como se muestra a continuacion : " ax.scatter3D( df ['RM'], df ['INDUS'], df ['MEDV'], color = 'R', marker = '.' ) " ---------------->Pasaron muchas cosas. + notese que ax. scatter, ya no es "ax.plotscatter" sino "ax.scatter3D" y esto por que sencillamente ahora estamos usando una grafica 3D y asi que tamb se tomen en cuentan las 3 variables que lo crean. + Y que al final las unicas cosas a destacar tambien, son el que se le pide que el color a usar sea Rojo ( 'R' ) y tamb un marcador que tenga forma de un punto ( '.' ). 9.Lo siguiente que se hizo fue cambiar el punto de vista desde el cual se mostraba la grafica 3D. Para cambiarla se escribio la linea: "ax.view_init (elev = 10, azim =5) + Asiendo asi el que el modelo se vea desde una perspectiva mas adecuada. y se aprecien mejor los detalles del mismo. 10. Por ultimo se escribe "plt.show" Para mostrar el resultado.
+

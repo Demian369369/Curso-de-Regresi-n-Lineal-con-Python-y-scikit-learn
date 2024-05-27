@@ -1,0 +1,3 @@
+cols_categoricas = [colname for colname in df.columns if df[colname].nunique() < 10 and df[colname].dtype == 'object']
+..........................
+df.corr().style.background_gradient(cmap="coolwarm", axis=None)

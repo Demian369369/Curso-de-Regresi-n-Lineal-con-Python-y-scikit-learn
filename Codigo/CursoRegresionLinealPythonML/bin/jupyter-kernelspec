@@ -1,0 +1,10 @@
+#!/bin/sh
+'''exec' /home/demianrgz23/Cursos_de_Platzi/MachineLearning_con_python/Curso2_Regresion_Lineal_con_Python/CursoRegresionLinealPythonML/bin/python3 "$0" "$@"
+' '''
+# -*- coding: utf-8 -*-
+import re
+import sys
+from jupyter_client.kernelspecapp import KernelSpecApp
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.exit(KernelSpecApp.launch_instance())
